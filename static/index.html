@@ -98,7 +98,7 @@
 <script>
 let domain = "https://bythemoviedb.azurewebsites.net";
 // let domain = "http://localhost:5000";
-var homeData, displayTab = 1;
+var homeData, displayTab = 0;
 
 var homeTab = document.getElementById("b1");
 var searchTab = document.getElementById("b2");
@@ -351,13 +351,15 @@ function showDetailsHtml(media_type) {
 
 	var cast_str = "";
 	tDetails["casts"].forEach((x) => {
+		let name = x["name"] == null || x["name"] === "" ? "N/A" : x["name"];
+		let char = x["character"] == null || x["character"] === "" ? "N/A" : x["character"];
 		let cast_img = x["profile_path"] != null ? x["profile_path"] : "./img/person-placeholder.png";
 		let item = `<div class="modal-cast-item">
 					    		<img src="${cast_img}">
 					    		<div class="modal-cast-text">
-					    		<div class="cast-name real">${x["name"]}</div>
+					    		<div class="cast-name real">${name}</div>
 					    		<div>AS</div>
-					    		<span class="cast-name">${x["character"]}</span>
+					    		<span class="cast-name">${char}</span>
 					    		</div>
 					    	</div>`;
 		cast_str += item;
@@ -378,9 +380,6 @@ function showDetailsHtml(media_type) {
 	tDetails["reviews"].forEach((x) => {
 		let date = `${x["created_at"].slice(5,7)}/${x["created_at"].slice(8,10)}/${x["created_at"].slice(0,4)}`;
 		let rating = x["rating"] == null ? "" : `★ ${parseFloat(parseFloat(x["rating"])/2).toFixed(1)}/5`;
-		if (x["rating"] != null) {
-
-		}
 		let item = `<div class="review-item">
 					    		<div class="review-info1">
 					    			<span>${x["username"]}</span>
@@ -390,7 +389,7 @@ function showDetailsHtml(media_type) {
 					    			${rating}
 					    		</div>
 					    		<div class="review-overview">
-					    			${x["content"]}
+					    			${x["content"] == null || x["content"] === "" ? "N/A" : x["content"]}
 					    		</div>
 					    		<div class="hr"></div>
 					    	</div>`;

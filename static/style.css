@@ -13,7 +13,7 @@ html,body {
 }
 
 .header {
-	padding-top: 3px;
+	padding-top: 8px;
 	background-color: black;
 	height: 30px;
 	flex: 0 1 auto;
@@ -21,7 +21,7 @@ html,body {
 
 .header-text {
 	padding-top: 5px;
-	padding-left: 2px;
+	padding-left: 7px;
 	color: darkred;
 	font-size: 30px;
 	display: inline-block;
@@ -43,8 +43,6 @@ html,body {
 	margin-left: 10%;
 	flex: 1 1 auto;
 	margin-bottom: 20px;
-	/*justify-content: center;*/
-	/*display: table-row;*/
 }
 
 .nav {
@@ -85,7 +83,6 @@ html,body {
 	color: white;
 	padding: 20px;
 	font-size: 18px;
-	/*border: 1px solid black;*/
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -99,7 +96,7 @@ html,body {
 }
 
 .mySlides {
-	
+
 }
 
 /* Fading Animation */
@@ -137,7 +134,7 @@ html,body {
 
 .content-search {
 	min-height: 100%;
-	min-height: calc(100vh - (50px + 50px));
+	min-height: calc(100vh - (55px + 50px));
 }
 
 .content-search-area {
@@ -284,14 +281,14 @@ input {
   display: none; 
   position: fixed; 
   z-index: 1; 
-  padding-top: 50px;
+  padding-top: 80px;
   left: 0;
   top: 0;
   width: 100%; 
   overflow: auto; 
   background-color: black;
   background-color: rgba(0,0,0,0.7);
-  height: calc(100% - 50px);
+  height: calc(100% - 80px);
 }
 
 /* Modal Content */
@@ -375,6 +372,7 @@ input {
 .modal-cast-item {
 	width: 185px;
 	flex: 1;
+	margin-bottom: 10px;
 }
 
 .modal-cast-text {
