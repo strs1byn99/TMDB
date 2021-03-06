@@ -203,11 +203,11 @@ function switchTab(tab) {
 
 var searchList = []
 function search() {
-  let keyword = document.getElementById('keyword').value.trim();
+  let keyword = document.getElementById('keyword').value;
   console.log("keyword: " + keyword);
   let category = document.getElementById('category').value;
   console.log("category: " + category)
-  if (keyword === "" || category == "none") { 
+  if (keyword.trim() === "" || category == "none") { 
     alert("Please enter valid values.");
     return;
   }
