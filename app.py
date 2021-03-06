@@ -53,7 +53,8 @@ def search_movie():
         movie["poster_path"] = ("https://image.tmdb.org/t/p/w185" + each.get("poster_path")) \
                                 if each.get("poster_path") != None else None
         movie["release_date"] = each.get("release_date")
-        movie["vote_average"] = each.get("vote_average")
+        movie["vote_average"] = str(each.get("vote_average")/2.0) if each.get("vote_average") != None \
+                                else None
         movie["vote_count"] = each.get("vote_count")
         movie["genre_ids"] = each.get("genre_ids")
         movie["media_type"] = "movie"
@@ -76,7 +77,8 @@ def search_tv():
         tv["poster_path"] = ("https://image.tmdb.org/t/p/w185" + each.get("poster_path")) \
                                 if each.get("poster_path") != None else None
         tv["first_air_date"] = each.get("first_air_date")
-        tv["vote_average"] = each.get("vote_average")
+        tv["vote_average"] = str(each.get("vote_average")/2.0) if each.get("vote_average") != None \
+                                else None
         tv["vote_count"] = each.get("vote_count")
         tv["genre_ids"] = each.get("genre_ids")
         tv["media_type"] = "tv"
@@ -104,7 +106,8 @@ def search_multi():
         d["overview"] = each.get("overview")
         d["poster_path"] = ("https://image.tmdb.org/t/p/w185" + each.get("poster_path")) \
                                 if each.get("poster_path") != None else None
-        d["vote_average"] = each.get("vote_average")
+        d["vote_average"] = str(each.get("vote_average")/2.0) if each.get("vote_average") != None \
+                                else None
         d["vote_count"] = each.get("vote_count")
         d["genre_ids"] = each.get("genre_ids")
         l.append(d)
@@ -121,7 +124,8 @@ def get_movie_detail(movie_id):
     movie["runtime"] = res.get("runtime")
     movie["release_date"] = res.get("release_date")
     movie["spoken_languages"] = res.get("spoken_languages")
-    movie["vote_average"] = res.get("vote_average")
+    movie["vote_average"] = str(res.get("vote_average")/2.0) if res.get("vote_average") != None \
+                                else None
     movie["vote_count"] = res.get("vote_count")
     movie["poster_path"] = ("https://image.tmdb.org/t/p/w185" + res.get("poster_path")) \
                             if res.get("poster_path") != None else None
@@ -152,7 +156,8 @@ def get_movie_detail(movie_id):
         review = dict()
         review["username"] = each["author_details"].get("username")
         review["content"] = each.get("content")
-        review["rating"] = each["author_details"].get("rating")
+        review["rating"] = str(each["author_details"].get("rating")/2.0) if each["author_details"].get("rating") != None \
+                                else None
         review["created_at"] = each.get("created_at")
         review_list.append(review)
     movie["reviews"] = review_list
@@ -169,7 +174,8 @@ def get_tv_detail(tv_show_id):
     tv["episode_run_time"] = res.get("episode_run_time")
     tv["first_air_date"] = res.get("first_air_date")
     tv["spoken_languages"] = res.get("spoken_languages")
-    tv["vote_average"] = res.get("vote_average")
+    tv["vote_average"] = str(res.get("vote_average")/2.0) if res.get("vote_average") != None \
+                                else None
     tv["vote_count"] = res.get("vote_count")
     tv["poster_path"] = ("https://image.tmdb.org/t/p/w185" + res.get("poster_path")) \
                             if res.get("poster_path") != None else None
@@ -201,7 +207,8 @@ def get_tv_detail(tv_show_id):
         review = dict()
         review["username"] = each["author_details"].get("username")
         review["content"] = each.get("content")
-        review["rating"] = each["author_details"].get("rating")
+        review["rating"] = str(each["author_details"].get("rating")/2.0) if each["author_details"].get("rating") != None \
+                                else None
         review["created_at"] = each.get("created_at")
         review_list.append(review)
     tv["reviews"] = review_list

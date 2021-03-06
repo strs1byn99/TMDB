@@ -91,7 +91,6 @@
 				</div>
 
 			</div>
-			<!-- <div style="height: 10px"></div> -->
 		</div>
 	</div>
 
@@ -274,9 +273,7 @@ function showResultsHtml() {
 		})
 
 		let info1 = `${date} | ${genres.length == 0? "N/A" : genres.join(", ")}`;
-		var info2_1 = "N/A";
-		if (searchList[idx].vote_average != null)
-			info2_1 = `★ ${parseFloat(parseFloat(searchList[idx].vote_average)).toFixed(1)/2}/5`;
+		let info2_1 = searchList[idx].vote_average == null ? "N/A" : `★ ${searchList[idx].vote_average}/5`;
 		let info2_2 = searchList[idx].vote_count == null ? "N/A" : searchList[idx].vote_count;
 		let item = `<div class='search-item'>
 						<div class='item-img'>
@@ -379,7 +376,7 @@ function showDetailsHtml(media_type) {
 	let reviews = tDetails["reviews"];
 	tDetails["reviews"].forEach((x) => {
 		let date = `${x["created_at"].slice(5,7)}/${x["created_at"].slice(8,10)}/${x["created_at"].slice(0,4)}`;
-		let rating = x["rating"] == null ? "" : `★ ${parseFloat(parseFloat(x["rating"])/2).toFixed(1)}/5`;
+		let rating = x["rating"] == null ? "" : `★ ${x["rating"]}/5`;
 		let item = `<div class="review-item">
 					    		<div class="review-info1">
 					    			<span>${x["username"]}</span>
@@ -399,9 +396,7 @@ function showDetailsHtml(media_type) {
 
 	let overview = tDetails["overview"] == null || tDetails["overview"] === "" ? "N/A" : tDetails["overview"];
 
-	var rate = "N/A";
-	if (tDetails["vote_average"] != null) 
-		rate = `${parseFloat(parseFloat(tDetails["vote_average"])/2).toFixed(1)}/5`;
+	let rate = tDetails["vote_average"] == null ? "N/A" : `★ ${tDetails["vote_average"]}/5`;
 	
 	str = `<div class="modal-img">
 		    	<img src="${img}">
@@ -411,7 +406,7 @@ function showDetailsHtml(media_type) {
 		    </div>
 		    <div class="modal-info1">${date} | ${genre_str}</div>
 		    <div class="modal-info2">
-		    	<span> ★ ${rate} </span>
+		    	<span> ${rate} </span>
 		    	${tDetails["vote_count"] == null ? "N/A" : tDetails["vote_count"]} votes
 		    </div>
 		    <div class="modal-overview">${overview}</div>
