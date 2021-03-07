@@ -339,7 +339,7 @@ function showDetailsHtml(media_type) {
   let img = tDetails["backdrop_path"] != null ? tDetails["backdrop_path"] : "./img/movie-placeholder.jpg";
 
   var langs = [];
-  tDetails["spoken_languages"].forEach((x) => { langs.push(x["name"]); });
+  tDetails["spoken_languages"].forEach((x) => { langs.push(x["english_name"]); });
   let lang_str = langs.length == 0 ? "N/A" : langs.join(", ");
 
   var genres = [];
