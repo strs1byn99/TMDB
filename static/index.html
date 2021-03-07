@@ -203,7 +203,7 @@ function switchTab(tab) {
 
 var searchList = []
 function search() {
-  let keyword = document.getElementById('keyword').value;
+  var keyword = document.getElementById('keyword').value;
   console.log("keyword: " + keyword);
   let category = document.getElementById('category').value;
   console.log("category: " + category)
@@ -211,6 +211,7 @@ function search() {
     alert("Please enter valid values.");
     return;
   }
+  keyword = keyword.replace(/\s/g, "%20");
   fetch(domain + "/search/" + category + "?query=" + keyword)
     .then((res) => res.json())
     .then((json) => {
