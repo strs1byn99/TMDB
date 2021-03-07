@@ -23,7 +23,7 @@ html,body {
   padding-top: 5px;
   padding-left: 7px;
   color: darkred;
-  font-size: 30px;
+  font-size: 28px;
   display: inline-block;
   font-weight: bold;
 }
@@ -38,9 +38,9 @@ html,body {
 }
 
 .content {
-  /*min-height: calc(100vh - 46px);*/
+  min-height: calc(100vh - (55px + 50px));
   background-color: black;
-  margin-left: 10%;
+  margin-left: 9%;
   flex: 1 1 auto;
   margin-bottom: 20px;
 }
@@ -74,9 +74,14 @@ html,body {
 }
 
 .tab {
+  /*min-height: calc(100vh - (55px + 50px));*/
   width: 85%;
   display: none;
   padding: 5px 8px;
+}
+
+.content-home {
+  min-height: calc(100vh - (55px + 50px));
 }
 
 .content-title {
@@ -131,7 +136,6 @@ html,body {
 }
 
 .content-search {
-  min-height: 100%;
   min-height: calc(100vh - (55px + 50px));
 }
 
