@@ -24,16 +24,18 @@ def get_slideshow_data():
     trending_list = []
     for each in trending_top5:
         movie = dict()
-        movie["title"] = each["title"]
-        movie["backdrop_path"] = "https://image.tmdb.org/t/p/w780/" + each["backdrop_path"]
-        movie["release_date"] = each["release_date"]
+        movie["title"] = each.get("title") if each.get("title") != "" else "N/A"
+        movie["backdrop_path"] = "https://image.tmdb.org/t/p/w780/" + each.get("backdrop_path") \
+                                if each.get("backdrop_path") != None else "./img/movie-placeholder.jpg"
+        movie["release_date"] = each.get("release_date") if each.get("release_date") != "" else "N/A"
         trending_list.append(movie)
     airingtv_list = []
     for each in airingtv_top5:
         tv = dict()
-        tv["name"] = each["name"]
-        tv["backdrop_path"] = "https://image.tmdb.org/t/p/w780/" + each["backdrop_path"]
-        tv["first_air_date"] = each["first_air_date"]
+        tv["name"] = each.get("name") if each.get("name") != "" else "N/A"
+        tv["backdrop_path"] = "https://image.tmdb.org/t/p/w780/" + each.get("backdrop_path") \
+                            if each.get("backdrop_path") != None else "./img/movie-placeholder.jpg"
+        tv["first_air_date"] = each.get("first_air_date") if each.get("first_air_date") != "" else "N/A"
         airingtv_list.append(tv)
     return json.dumps([trending_list, airingtv_list])
 
